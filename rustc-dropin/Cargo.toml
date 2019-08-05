@@ -1,0 +1,15 @@
+[package]
+name = "rustc-dropin"
+version = "0.1.0"
+authors = ["F. Sautter <f.sautter@campus.lmu.de>"]
+edition = "2018"
+
+
+[dependencies]
+instrument = { path = "../instrument" }
+dirs = "1.0"
+
+
+[[bin]]
+name = "rustc"
+path = "src/main.rs"

@@ -1,0 +1,17 @@
+[package]
+name = "instrument"
+version = "0.1.0"
+authors = ["F. Sautter <f.sautter@campus.lmu.de>"]
+edition = "2018"
+
+[dependencies]
+instdata = { path = "../instdata" }
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.5"
+state = { version = "0.2", features = ["tls"] }
+time = "0.1"
+mio = "0.6"
+dirs = "1.0"
+
+[lib]
+crate-type = ["rlib", "staticlib"]

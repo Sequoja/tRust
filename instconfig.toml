@@ -1,0 +1,20 @@
+machine_id = "192.168.86.76"
+collector_ip = "192.168.86.71"
+collector_port = 8080
+code_2_monitor = [
+    ["", "ExternCrateItem"],
+    ["main", "GlobalScope"],
+    ["std::thread::spawn", "LocalScope"],
+    ["par_iter_mut", "LocalScope"],
+    ["rayon::join", "LocalScope"],
+    ["join_context", "LocalScope"],
+    ["crossbeam_channel::bounded", "InstCallForFunction"],
+    ["send", "InstCallForMethod"],
+    ["recv", "InstCallForMethod"],
+    ["timely::execute_from_args", "LocalScope"],
+    ["receive", "InstCallForMethod"],
+]
+special_behaviour = [
+    ["rayon::join", "nope"],
+    ["hello", "not_after_10"],
+]

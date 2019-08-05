@@ -1,0 +1,2 @@
+[build]
+rustflags = ["-L", "path/to/your/project/target/debug/deps"]

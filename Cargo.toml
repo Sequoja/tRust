@@ -1,0 +1,24 @@
+[package]
+name = "parallel-execution-profiling-framework"
+version = "0.1.0"
+authors = ["F. Sautter <f.sautter@campus.lmu.de>"]
+edition = "2018"
+
+[dependencies]
+rayon = "1.0.3"
+crossbeam = "0.7"
+timely = "0.8"
+blake2 = "0.8"
+sha2 = "0.8"
+sha3 = "0.8.2"
+rand = "0.4"
+# instrument = { path = "instrument" }
+
+
+[workspace]
+
+# Optional key, inferred from path dependencies if not present.
+# Additional non-path dependencies that should be included must be given here.
+# In particular, for a virtual manifest, all members have to be listed.
+members = ["rustc-dropin", "instrument", "instdata"]
+exclude = ["instcollect"]
