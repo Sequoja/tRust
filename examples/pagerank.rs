@@ -1,3 +1,5 @@
+// Taken from https://github.com/TimelyDataflow/timely-dataflow/blob/master/timely/examples/pagerank.rs
+
 use rand::{Rng, SeedableRng, StdRng};
 use std::collections::HashMap;
 use timely::dataflow::channels::pact::Exchange;
