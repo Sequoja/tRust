@@ -1,3 +1,5 @@
+// Taken from: https://github.com/TimelyDataflow/timely-dataflow/blob/master/timely/examples/pingpong.rs
+
 use timely::dataflow::operators::*;
 
 fn main() {
