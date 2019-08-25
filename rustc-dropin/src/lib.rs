@@ -1,3 +1,5 @@
+// Uses the compiler interface described in https://github.com/nrc/stupid-stats
+
 #![feature(rustc_private)]
 
 extern crate getopts;
