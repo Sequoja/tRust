@@ -3,6 +3,29 @@
 The tRust framework allows observing the execution of parallel Rust applications. This framework provides a modified Rust compiler for the automated insertion of probes into the observed program and its dependencies. A run-time library enables the transmission of observation data to a central collector application for persistent storage. This centrally collected data allows for extensive analysis of the run-time behavior of the program.
 
 
+## Build tRust
+
+1. Build the ``ìnstdata```package
+```bash
+cd instdata && cargo build
+```
+
+2. Build the ```instrument``` library
+```bash
+cd ../instrument && cargo build
+```
+
+3. Build the drop-in compiler
+```bash
+cd ../rustc-dropin && cargo build
+```
+
+4. Build the collector application
+```bash
+cd ../instcollect/ && cargo build
+```
+
+
 ## Setting up the ```rustup``` toolchain
 
 For Cargo to use the drop-in compiler provided by tRust it is necessary to register a cus- tom toolchain with rustup. The following describes how to set up a custom toolchain on Ubuntu. It is important that this is run after the drop-in compiler was built.
