@@ -31,3 +31,38 @@ $ rustup toolchain link rustinst  ̃/.rust_custom_toolchains/rustinst
 ```bash
 $ rustup override set rustinst
 ```
+
+## Description of the Configuration File
+
+The configuration file containing the functions and methods of interest as well as the ad- dress (IP and port) of the machine running the collector application has to be stored in ``` ̃/.rust inst/instconfig.toml```. As the file extension indicates the file is formatted as TOML (Tom’s Obvious, Minimal Language), a common file format for configuration files in the Rust ecosystem. The various options for configuring tRust are explained in the following:
+
+```toml
+machine_id = "192.168.86.76"
+collector_ip = "192.168.86.71"
+collector_port = 8080
+code_2_monitor = [
+    ["", "ExternCrateItem"],
+    ["main", "GlobalScope"],
+    ["std::thread::spawn", "LocalScope"],
+    ["par_iter_mut", "LocalScope"],
+    ["rayon::join", "LocalScope"],
+    ["join_context", "LocalScope"],
+    ["crossbeam_channel::bounded", "InstCallForFunction"],
+    ["send", "InstCallForMethod"],
+    ["recv", "InstCallForMethod"],
+    ["timely::execute_from_args", "LocalScope"],
+    ["receive", "InstCallForMethod"],
+]
+```
+
+- ```machine_id``` specifies the IP address of the current system. This address is sent as part of the static data to the collector application.
+- ```collector_ip``` specifies the IP address of the machine running the collector application.
+- ```collector_port``` specifies the port on which the collector application is listening.
+- ```code_2_monitor``` specifies all the functions and methods which should receive instrumentation. Each function or method is   specified by its absolute name and the kind of instrumentation it should receive.
+```["absoult func or method name", "instrumentation kind"]```
+    In the following the different instrumentation kinds are explained:
+    - ```ExternCrateItem``` defines the import statement. This has to be present in the config file at all times for tRust to work correctly.
+    - ```GlobalScope``` defines which function in the application should be used for global initialization and finalization.
+    - ```LocalScope``` defines functions and methods which introduces a new thread-local scope.
+    - ```InstCallForFunction``` defines functions which should receive measurement instrumentation calls.
+    - ```InstCallForMethod``` defines methods which should receive measurement instrumentation calls.
