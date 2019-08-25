@@ -2,6 +2,12 @@
 
 The tRust framework allows observing the execution of parallel Rust applications. This framework provides a modified Rust compiler for the automated insertion of probes into the observed program and its dependencies. A run-time library enables the transmission of observation data to a central collector application for persistent storage. This centrally collected data allows for extensive analysis of the run-time behavior of the program.
 
+tRust was designed according to the following goals:
+
+- **The instrumentation of programs written entirely in Rust must be supported.** In particular, this should be possible without using any other tools and libraries such as MPI or OpenMP.
+
+- **The instrumentation of dependencies must be possible.** Rust comes with many useful libraries. They often provide high-level wrappers around low-level mechanisms, which allow developers to focus on high-level application design. In order to get de- tailed insight into the run-time behavior of the program, it is necessary to instrument libraries. tRust should support the three popular Rust libraries for parallel programming: ```Crossbeam```, ```Rayon```, and ```Timely Dataflow.
+
 
 ## Build tRust
 
@@ -22,7 +28,7 @@ cd ../rustc-dropin && cargo build
 
 4. Build the collector application
 ```bash
-cd ../instcollect/ && cargo build
+cd ../instcollect && cargo build
 ```
 
 
