@@ -1,3 +1,5 @@
+// Another example
+
 use crossbeam::channel::unbounded;
 extern crate rayon;
 // use instrument;
