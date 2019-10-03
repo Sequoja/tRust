@@ -6,7 +6,9 @@ tRust was designed according to the following goals:
 
 - **The instrumentation of programs written entirely in Rust must be supported.** In particular, this should be possible without using any other tools and libraries such as MPI or OpenMP.
 
-- **The instrumentation of dependencies must be possible.** Rust comes with many useful libraries. They often provide high-level wrappers around low-level mechanisms, which allow developers to focus on high-level application design. In order to get de- tailed insight into the run-time behavior of the program, it is necessary to instrument libraries. tRust should support the three popular Rust libraries for parallel programming: ```Crossbeam```, ```Rayon```, and ```Timely Dataflow.
+- **The instrumentation of dependencies must be possible.** Rust comes with many useful libraries. They often provide high-level wrappers around low-level mechanisms, which allow developers to focus on high-level application design. In order to get de- tailed insight into the run-time behavior of the program, it is necessary to instrument libraries. tRust should support the three popular Rust libraries for parallel programming: ```Crossbeam```, ```Rayon```, and ```Timely Dataflow```.
+
+*This Project was part of a [master thesis](https://www.en.pms.ifi.lmu.de/publications/index.php#MA_Frederic.Sautter)*
 
 
 ## Build tRust
